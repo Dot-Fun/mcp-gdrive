@@ -2,7 +2,7 @@
 
 An MCP (Model Context Protocol) server that enables AI assistants to interact with Google Drive and Google Sheets. Search files, read documents, and update spreadsheets through MCP-compatible clients like Claude Desktop.
 
-Based on code originally developed by Anthropic, PBC, licensed under the MIT License from [this repo](https://github.com/modelcontextprotocol/servers/tree/main/src/gdrive).
+Based on [isaacphi/mcp-gdrive](https://github.com/isaacphi/mcp-gdrive), which includes code originally developed by Anthropic, PBC from [this repo](https://github.com/modelcontextprotocol/servers/tree/main/src/gdrive), licensed under the MIT License.
 
 ## Features
 
