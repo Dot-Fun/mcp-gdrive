@@ -63,15 +63,21 @@ The server provides access to Google Drive files:
 5. In order to allow interaction with sheets and docs you will also need to enable the [Google Sheets API](https://console.cloud.google.com/apis/api/sheets.googleapis.com/) and [Google Docs API](https://console.cloud.google.com/marketplace/product/google/docs.googleapis.com) in your workspaces Enabled API and Services section.
 6. [Create an OAuth Client ID](https://console.cloud.google.com/apis/credentials/oauthclient) for application type "Desktop App"
 7. Download the JSON file of your client's OAuth keys
-8. Rename the key file to `gcp-oauth.keys.json` and place into the path you specify with `GDRIVE_CREDS_DIR` (i.e. `/Users/username/.config/mcp-gdrive`)
-9. Note your OAuth Client ID and Client Secret. They must be provided as environment variables along with your configuration directory.
-10. You will also need to setup a .env file within the project with the following fields. You can find the Client ID and Client Secret in the Credentials section of the Google Cloud Console.
+8. Note your OAuth Client ID and Client Secret from the downloaded file
 
+### Setting up environment variables
+
+You'll need to provide your OAuth credentials as environment variables. You have two options:
+
+#### Option 1: Using a .env file (for development)
+Create a `.env` file in the project root:
 ```
-GDRIVE_CREDS_DIR=/path/to/config/directory
-CLIENT_ID=<CLIENT_ID>
-CLIENT_SECRET=<CLIENT_SECRET>
+GDRIVE_CREDS_DIR=/path/to/store/credentials
+CLIENT_ID=your-client-id-here
+CLIENT_SECRET=your-client-secret-here
 ```
+
+#### Option 2: Pass them directly in your MCP configuration (see Usage section below)
 
 Make sure to build the server with either `npm run build` or `npm run watch`.
 
@@ -87,14 +93,32 @@ Your OAuth token is saved in the directory specified by the `GDRIVE_CREDS_DIR` e
 
 ### Usage with Desktop App
 
-To integrate this server with the desktop app, add the following to your app's server configuration:
+To integrate this server with the desktop app, you have two options:
 
+#### Option 1: Using the built version directly
+```json
+{
+  "mcpServers": {
+    "gdrive": {
+      "command": "node",
+      "args": ["/path/to/mcp-gdrive/dist/index.js"],
+      "env": {
+        "CLIENT_ID": "<CLIENT_ID>",
+        "CLIENT_SECRET": "<CLIENT_SECRET>",
+        "GDRIVE_CREDS_DIR": "/path/to/config/directory"
+      }
+    }
+  }
+}
+```
+
+#### Option 2: If published to npm (coming soon)
 ```json
 {
   "mcpServers": {
     "gdrive": {
       "command": "npx",
-      "args": ["-y", "@isaacphi/mcp-gdrive"],
+      "args": ["-y", "@dotfun/mcp-gdrive"],
       "env": {
         "CLIENT_ID": "<CLIENT_ID>",
         "CLIENT_SECRET": "<CLIENT_SECRET>",
