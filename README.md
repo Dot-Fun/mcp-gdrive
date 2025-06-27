@@ -152,7 +152,7 @@ Replace `/absolute/path/to/mcp-gdrive` with your actual installation path.
 
 ## License
 
-MIT License - see LICENSE file for details.
+This MCP server is licensed under the MIT License. This means you are free to use, modify, and distribute the software, subject to the terms and conditions of the MIT License. For more details, please see the LICENSE file in the project repository.
 
 ---
 
