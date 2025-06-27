@@ -91,43 +91,33 @@ Your OAuth token is saved in the directory specified by the `GDRIVE_CREDS_DIR` e
 
 ![Authentication Prompt](https://i.imgur.com/TbyV6Yq.png)
 
-### Usage with Desktop App
+### Usage with Claude Desktop App
 
-To integrate this server with the desktop app, you have two options:
+To use this MCP server with Claude Desktop, add the following to your Claude configuration file:
 
-#### Option 1: Using the built version directly
+**On macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`  
+**On Windows**: `%APPDATA%/Claude/claude_desktop_config.json`
+
 ```json
 {
   "mcpServers": {
     "gdrive": {
       "command": "node",
-      "args": ["/path/to/mcp-gdrive/dist/index.js"],
+      "args": ["/absolute/path/to/mcp-gdrive/dist/index.js"],
       "env": {
-        "CLIENT_ID": "<CLIENT_ID>",
-        "CLIENT_SECRET": "<CLIENT_SECRET>",
-        "GDRIVE_CREDS_DIR": "/path/to/config/directory"
+        "CLIENT_ID": "<YOUR_CLIENT_ID>",
+        "CLIENT_SECRET": "<YOUR_CLIENT_SECRET>",
+        "GDRIVE_CREDS_DIR": "/path/to/store/auth/tokens"
       }
     }
   }
 }
 ```
 
-#### Option 2: If published to npm (coming soon)
-```json
-{
-  "mcpServers": {
-    "gdrive": {
-      "command": "npx",
-      "args": ["-y", "@dotfun/mcp-gdrive"],
-      "env": {
-        "CLIENT_ID": "<CLIENT_ID>",
-        "CLIENT_SECRET": "<CLIENT_SECRET>",
-        "GDRIVE_CREDS_DIR": "/path/to/config/directory"
-      }
-    }
-  }
-}
-```
+Make sure to:
+1. Clone this repository and run `npm install && npm run build`
+2. Use absolute paths in your configuration
+3. Replace `<YOUR_CLIENT_ID>` and `<YOUR_CLIENT_SECRET>` with your actual credentials
 
 ## License
 
