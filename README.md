@@ -108,3 +108,9 @@ To integrate this server with the desktop app, add the following to your app's s
 ## License
 
 This MCP server is licensed under the MIT License. This means you are free to use, modify, and distribute the software, subject to the terms and conditions of the MIT License. For more details, please see the LICENSE file in the project repository.
+
+---
+
+<p align="center">
+  🚀 Built with love by <a href="https://dotfun.co">DotFun</a> - Where AI meets awesome! 🎉
+</p>
