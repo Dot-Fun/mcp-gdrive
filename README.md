@@ -9,7 +9,6 @@ This project includes code originally developed by Anthropic, PBC, licensed unde
 ### Tools
 
 - **gdrive_search**
-
   - **Description**: Search for files in Google Drive.
   - **Input**:
     - `query` (string): Search query.
@@ -18,14 +17,17 @@ This project includes code originally developed by Anthropic, PBC, licensed unde
   - **Output**: Returns file names and MIME types of matching files.
 
 - **gdrive_read_file**
-
   - **Description**: Read contents of a file from Google Drive.
   - **Input**:
     - `fileId` (string): ID of the file to read.
   - **Output**: Returns the contents of the specified file.
 
-- **gsheets_read**
+- **gdrive_deauthenticate**
+  - **Description**: Remove Google Drive authentication credentials and deauthenticate the server.
+  - **Input**: None required.
+  - **Output**: Confirmation message. Note: After using this tool, you must restart your MCP client to re-authenticate.
 
+- **gsheets_read**
   - **Description**: Read data from a Google Spreadsheet with flexible options for ranges and formatting.
   - **Input**:
     - `spreadsheetId` (string): The ID of the spreadsheet to read.
